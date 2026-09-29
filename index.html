@@ -13,7 +13,7 @@
   <meta property="og:title" content="Shuyang Gong · 巩舒阳">
   <meta property="og:description" content="FDS Postdoctoral Fellow, Yale University. Research in probability theory.">
   <meta property="og:url" content="https://shuyanggong.github.io/">
-  <meta property="og:image" content="https://shuyanggong.github.io/shuyang_headshot.JPG">
+  <meta property="og:image" content="https://shuyanggong.github.io/headshot.jpg">
   <link rel="canonical" href="https://shuyanggong.github.io/">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231f5c99'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='29' text-anchor='middle' fill='%23f3f6fa'%3ESG%3C/text%3E%3C/svg%3E">
   <script>
@@ -88,7 +88,7 @@
     @keyframes view-in { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
 
     /* ---------- Hero ---------- */
-    .hero { display: grid; grid-template-columns: minmax(0, 1fr) 225px; gap: 64px; align-items: start; padding: 50px 0 44px; }
+    .hero { display: grid; grid-template-columns: minmax(0, 1fr) 190px; gap: 64px; align-items: start; padding: 50px 0 44px; }
     .eyebrow { font: 11px/1.7 var(--sans); letter-spacing: .16em; text-transform: uppercase; color: var(--muted); margin-bottom: 16px; }
     .hero h1 { display: flex; flex-wrap: wrap; align-items: center; column-gap: 22px; font: 400 clamp(42px, 5vw, 56px)/1.12 var(--serif); letter-spacing: -.04em; margin-bottom: 12px; }
     .zh-name { font: 25px/1.5 var(--zh); letter-spacing: .1em; }
@@ -100,11 +100,9 @@
     .contact .label { color: var(--ink); margin-right: 8px; font-weight: 600; }
     .contact .nowrap { color: var(--ink); font-weight: 600; }
     .nowrap { white-space: nowrap; }
-    .portrait { width: 225px; padding-top: 6px; }
-    /* The photo is landscape; this frame crops it to a portrait around the person.
-       If you replace the photo, adjust object-position / scale below. */
-    .portrait-frame { aspect-ratio: 2 / 3; overflow: hidden; background: var(--line); }
-    .portrait-frame img { width: 100%; height: 100%; object-fit: cover; object-position: 56% 50%; transform: scale(1.3); transform-origin: 50% 100%; }
+    .portrait { width: 190px; padding-top: 10px; }
+    .portrait-frame { aspect-ratio: 4 / 5; overflow: hidden; border-radius: 4px; background: var(--line); }
+    .portrait-frame img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%; }
     .portrait figcaption { padding-top: 10px; font: 10px/1.7 var(--sans); letter-spacing: .1em; text-align: right; color: var(--muted); }
 
     /* ---------- Page intro + tags (Research, Talks) ---------- */
@@ -173,8 +171,8 @@
     @media (max-width: 850px) {
       :root { --meta: 96px; --gap: 22px; }
       .shell { width: calc(100% - 56px); }
-      .hero { grid-template-columns: minmax(0, 1fr) 180px; gap: 36px; }
-      .portrait { width: 180px; }
+      .hero { grid-template-columns: minmax(0, 1fr) 160px; gap: 36px; }
+      .portrait { width: 160px; }
       .zh-name { flex-basis: 100%; margin-top: 8px; font-size: 23px; }
     }
     @media (max-width: 600px) {
@@ -188,7 +186,7 @@
       .hero h1 { font-size: 42px; column-gap: 12px; }
       .zh-name { flex-basis: auto; margin-top: 0; font-size: 22px; }
       .bio { font-size: 15.5px; }
-      .portrait { width: 190px; padding-top: 0; }
+      .portrait { width: 150px; padding-top: 0; }
       .page-intro { padding: 32px 0 28px; }
       .page-intro h1 { font-size: 40px; }
       .tags { gap: 8px; }
@@ -284,7 +282,7 @@
           </div>
           <figure class="portrait">
             <div class="portrait-frame">
-              <img src="https://shuyanggong.github.io/shuyang_headshot.JPG" width="1598" height="1279" alt="Shuyang Gong standing in a field of reeds, with mountains in the distance" fetchpriority="high">
+              <img src="https://shuyanggong.github.io/headshot.jpg" width="640" height="669" alt="Portrait of Shuyang Gong" fetchpriority="high">
             </div>
             <figcaption>SHUYANG GONG / <span lang="zh-CN">巩舒阳</span></figcaption>
           </figure>
