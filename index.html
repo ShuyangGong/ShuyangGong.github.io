@@ -1,187 +1,800 @@
-<html><head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Shuyang Gong · 巩舒阳</title>
+  <meta name="description" content="Shuyang Gong (巩舒阳), FDS Postdoctoral Fellow at the Institute for Foundations of Data Science, Yale University. Research in probability theory.">
+  <meta name="author" content="Shuyang Gong">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#f3f6fa" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#1e2125" media="(prefers-color-scheme: dark)">
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="Shuyang Gong · 巩舒阳">
+  <meta property="og:description" content="FDS Postdoctoral Fellow, Yale University. Research in probability theory.">
+  <meta property="og:url" content="https://shuyanggong.github.io/">
+  <meta property="og:image" content="https://shuyanggong.github.io/shuyang.jpg">
+  <link rel="canonical" href="https://shuyanggong.github.io/">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231f5c99'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='29' text-anchor='middle' fill='%23f3f6fa'%3ESG%3C/text%3E%3C/svg%3E">
+  <script>
+    /* Apply the saved colour theme before the page is drawn (avoids a flash). */
+    (function () {
+      var root = document.documentElement;
+      root.className += ' js';
+      try {
+        var saved = localStorage.getItem('sg-theme');
+        if (saved === 'light' || saved === 'dark') root.setAttribute('data-theme', saved);
+      } catch (e) {}
+    })();
+  </script>
+  <style>
+    /* ---------- Colours & fonts ---------- */
+    :root {
+      color-scheme: light dark;
+      --paper: #f3f6fa;
+      --ink: #262b31;
+      --muted: #5b646d;
+      --accent: #1f5c99;
+      --line: #d5dde7;
+      --meta: 112px;   /* width of the left column (venues, dates) */
+      --gap: 28px;
+      --tab-line: color-mix(in srgb, var(--muted) 38%, var(--paper));
+      --serif: Georgia, Charter, 'Bitstream Charter', 'Noto Serif', 'Times New Roman', 'Songti SC', 'STSong', serif;
+      --zh: 'Songti SC', 'STSong', 'Noto Serif CJK SC', 'Noto Serif SC', 'Source Han Serif SC', 'SimSun', serif;
+      --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme='light']) { --paper: #1e2125; --ink: #e7ebee; --muted: #aab4be; --accent: #8cc2f8; --line: #3b434b; }
+    }
+    :root[data-theme='dark'] { color-scheme: dark; --paper: #1e2125; --ink: #e7ebee; --muted: #aab4be; --accent: #8cc2f8; --line: #3b434b; }
+    :root[data-theme='light'] { color-scheme: light; }
 
- <title>Shuyang Gong's Home Page</title> 
- <style type="text/css"> 
- </style>
- </head><body>
-  <h1 align="center">Shuyang Gong(巩舒阳) </h1>
- 
- <img src="shuyang.jpg", height="300", align="left">
+    /* ---------- Base ---------- */
+    *, *::before, *::after { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; scroll-behavior: smooth; scroll-padding-top: 20px; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font: 17px/1.75 var(--serif); -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+    h1, h2, h3, p, figure, ul { margin: 0; }
+    h1, h2, h3 { font-weight: 400; }
+    ul { padding: 0; list-style: none; }
+    img { display: block; max-width: 100%; }
+    a { color: var(--accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+    a:hover { text-decoration-thickness: 2px; }
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+    [tabindex="-1"]:focus { outline: none; }
+    [hidden] { display: none !important; }
+    html:not(.js) .js-only { display: none; }
+    select { font: inherit; }
+    .muted { color: var(--muted); }
+    .shell { width: min(100% - 88px, 980px); margin: 0 auto; }
+    .skip-link { position: absolute; top: -100px; left: 20px; z-index: 10; padding: 10px 18px; background: var(--paper); color: var(--ink); }
+    .skip-link:focus { top: 8px; }
 
-  <h2>About </h2>
-Hello! Welcome to my homepage! <br>
+    /* ---------- Header ---------- */
+    .site-header { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; padding: 26px 0 0; border-bottom: 1px solid var(--tab-line); }
+    /* Tabs with an outline; the current one opens onto the page below. */
+    .site-nav { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 6px; font: 13px/1.6 var(--sans); }
+    .site-nav a { position: relative; margin-bottom: -1px; padding: 7px 16px 6px; border: 1px solid var(--tab-line); border-radius: 7px 7px 0 0; background: color-mix(in srgb, var(--line) 28%, var(--paper)); color: var(--muted); text-decoration: none; transition: color .15s, background-color .15s; }
+    .site-nav a:hover { color: var(--accent); background: var(--paper); }
+    .site-nav a[aria-current='page'] { color: var(--accent); font-weight: 600; background: var(--paper); border-bottom-color: var(--paper); z-index: 1; }
+    .theme { position: relative; display: inline-flex; align-items: center; flex: none; margin-bottom: 8px; }
+    .theme::after { content: "\25BE"; position: absolute; right: 0; font: 9px/1 var(--sans); color: var(--muted); pointer-events: none; }
+    .theme-picker { -webkit-appearance: none; appearance: none; color: var(--muted); background: transparent; border: 0; border-radius: 0; padding: 4px 12px 4px 6px; font: 12px/1.6 var(--sans); cursor: pointer; }
+    .theme-picker:hover { color: var(--accent); }
+    html:not(.js) .theme { display: none; }
 
-<p>
- I am an FDS postdoctoral fellow at the <a href="https://fds.yale.edu">Institute for Foundations of Data Science, Yale University</a>, hosted by Prof. <a href="http://cs-www.cs.yale.edu/homes/spielman/">Daniel A. Spielman</a>.
-Previouly, I obtained my Ph.D degree in probability and mathematical statistics at <a href="https://math.pku.edu.cn">School of Mathematical Sciences, Peking University</a>, where I was advised by Prof. <a href="https://math.pku.edu.cn/teachers/dayue/indexE.htm">Dayue Chen</a> and Prof. <a href="https://math.pku.edu.cn/teachers/dingjian/index.html">Jian Ding</a>. I obtained my B.S. degree in statistics from
-Department of Mathematics, Shandong University.  
-</p>
+    /* ---------- Views (Home / Research / Talks / Teaching) ---------- */
+    .view { scroll-margin-top: 80px; }       /* a link to a tab lands at the very top of the page */
+    .js .view:not([hidden]) { animation: view-in .22s ease-out; }
+    @keyframes view-in { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
 
- <p>
-My research interest is probability theory. <br>
-Links: <a href="https://scholar.google.com/citations?user=eVymvlkAAAAJ&hl=zh-CN">Google Scholar</a>. <a href="https://orcid.org/0009-0007-2975-4614">ORCID</a>. <a href="https://www.linkedin.com/in/shuyang-gong-13b904199/">Linkedin</a>. <br>
-My <a href="https://en.wikipedia.org/wiki/Erdős_number">Erdős Number</a> is 3.<br> 
-Email address: firstname dot lastname at yale dot edu and gongsyprob at gmail dot com.<br>
- </p>
- 
- <div style="clear: both;"></div>
-  
-<h3>Curriculum Vitae </h3>
- 
- <a href="https://ShuyangGong.github.io/CV_Shuyang_Gong.pdf">Here </a> is my CV (last update: May 2026).<br>
+    /* ---------- Hero ---------- */
+    .hero { display: grid; grid-template-columns: minmax(0, 1fr) 225px; gap: 64px; align-items: start; padding: 50px 0 44px; }
+    .eyebrow { font: 11px/1.7 var(--sans); letter-spacing: .16em; text-transform: uppercase; color: var(--muted); margin-bottom: 16px; }
+    .hero h1 { display: flex; flex-wrap: wrap; align-items: center; column-gap: 22px; font: 400 clamp(42px, 5vw, 56px)/1.12 var(--serif); letter-spacing: -.04em; margin-bottom: 12px; }
+    .zh-name { font: 25px/1.5 var(--zh); letter-spacing: .1em; }
+    .role { font: 13px/1.8 var(--sans); color: var(--muted); margin-bottom: 24px; }
+    .bio { max-width: 620px; font-size: 16px; line-height: 1.85; }
+    .bio p + p { margin-top: 12px; }
+    .hero-links { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 24px; margin-top: 24px; font: 12px/1.7 var(--sans); }
+    .contact { margin-top: 10px; font: 14px/1.7 var(--sans); color: var(--muted); }
+    .contact .label { color: var(--ink); margin-right: 8px; font-weight: 600; }
+    .contact .nowrap { color: var(--ink); font-weight: 600; }
+    .nowrap { white-space: nowrap; }
+    .portrait { width: 225px; padding-top: 6px; }
+    /* The photo is landscape; this frame crops it to a portrait around the person.
+       If you replace the photo, adjust object-position / scale below. */
+    .portrait-frame { aspect-ratio: 2 / 3; overflow: hidden; background: var(--line); }
+    .portrait-frame img { width: 100%; height: 100%; object-fit: cover; object-position: 56% 50%; transform: scale(1.3); transform-origin: 50% 100%; }
+    .portrait figcaption { padding-top: 10px; font: 10px/1.7 var(--sans); letter-spacing: .1em; text-align: right; color: var(--muted); }
 
-<br><br>
-  
- <h3>Research paper </h3>
- <ul>
+    /* ---------- Page intro + tags (Research, Talks) ---------- */
+    .page-intro { padding: 48px 0 34px; }
+    .page-intro h1 { font: 400 46px/1.15 var(--serif); letter-spacing: -.035em; margin-bottom: 14px; }
+    .page-intro p:not(.eyebrow) { max-width: 730px; font-size: 16px; line-height: 1.8; }
+    .tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+    .tag { display: inline-flex; align-items: baseline; gap: 8px; padding: 5px 14px; border: 1px solid var(--line); border-radius: 999px; font: 12px/1.6 var(--sans); color: var(--ink); text-decoration: none; transition: border-color .15s, color .15s; }
+    .tag:hover { border-color: var(--accent); color: var(--accent); }
+    .tag .n { color: var(--muted); font-variant-numeric: tabular-nums; }
+    .tag.ext { color: var(--accent); }
 
- <li> The conclave process.<br>
-  with <a href = "https://www.wisdom.weizmann.ac.il/~itai">I. Benjamini</a>, <a href="https://weizmann.elsevierpure.com/en/persons/zhenhao-cai/">Z. Cai</a>, G. Chen and <a href="https://zhangsong-li.github.io">Z. Li</a>. <br>
-  <a href="https://arxiv.org/abs/2607.22324">arXiv</a>.
- </li><br>
+    /* ---------- Sections ---------- */
+    .section { border-top: 1px solid var(--line); padding: 30px 0 34px; }
+    .section-heading { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 12px 24px; margin-bottom: 8px; }
+    .section-heading h2, .status-heading h2 { font: 400 28px/1.3 var(--serif); letter-spacing: -.02em; }
+    .status-heading { display: flex; align-items: baseline; gap: 14px; margin-bottom: 8px; }
+    .count { font: 12px/1.7 var(--sans); color: var(--muted); font-variant-numeric: tabular-nums; }
+    .section-link { font: 12px/1.7 var(--sans); white-space: nowrap; }
+    .year-group { border-top: 1px solid var(--line); padding: 28px 0 22px; }
+    .year-group h2 { font: 400 26px/1.3 var(--serif); letter-spacing: -.02em; margin-bottom: 6px; }
+    .row { display: grid; grid-template-columns: var(--meta) minmax(0, 1fr); gap: var(--gap); }
+    .side { font: 12px/1.8 var(--sans); color: var(--muted); padding-top: 3px; font-variant-numeric: tabular-nums; }
 
+    /* Papers */
+    .paper { padding: 22px 0; border-bottom: 1px solid var(--line); }
+    .paper:last-child { border-bottom: 0; padding-bottom: 4px; }
+    .paper .side { font-size: 11px; }
+    .paper .side span { display: block; }
+    .venue { color: var(--ink); font-weight: 600; letter-spacing: .02em; }
+    .venue.preprint { color: var(--muted); font-weight: 400; }
+    .paper h3 { font: 400 20px/1.45 var(--serif); letter-spacing: -.012em; text-wrap: pretty; }
+    .paper h3 a { color: var(--ink); text-decoration: none; }
+    .paper h3 a:hover { color: var(--accent); text-decoration: underline; }
+    .authors { margin-top: 6px; font: 12.5px/1.75 var(--sans); color: var(--muted); }
+    .authors a { color: inherit; text-decoration-color: var(--line); text-underline-offset: 3px; }
+    .authors a:hover { color: var(--accent); text-decoration-color: currentColor; }
+    .paper-note { margin-top: 4px; font: 14.5px/1.7 var(--serif); color: var(--muted); }
+    .award { margin-top: 4px; font: 12.5px/1.7 var(--sans); color: var(--accent); }
+    .award::before { content: "\2605"; margin-right: 6px; font-size: 11px; }
+    .paper-links { display: flex; flex-wrap: wrap; gap: 6px 18px; margin-top: 8px; font: 11.5px/1.7 var(--sans); }
 
-  
- <li>
-  Stable algorithms cannot reliably find isolated perceptron solutions. <br>
-  with <a href="https://www.bricehuang.com/index.html">B. Huang</a>, <a href="https://fifalsp.github.io">S. Li</a> and <a href="https://msellke.com">M. Sellke</a>. <br>
- Conference version to appear at <i> FOCS 2026 </i>. <br> 
-  <a href="https://arxiv.org/abs/2604.00328">arXiv</a>. 
- </li><br>
-  
- <li>
-  Fundamental limits of community detection in contextual multi-layer stochastic block models.<br>
-  with <a href="https://donghuang-stat.github.io">D. Huang</a> and <a href="https://zhangsong-li.github.io">Z. Li</a>. <br>
-  <a href="https://arxiv.org/abs/2602.08173">arXiv</a>.
- </li><br>
-  
- <li>
-  Detecting correlation efficiently in stochastic block models: breaking Otter's threshold in the entire supercritical regime.<br>
-  with G. Chen, <a href="https://www.math.pku.edu.cn/teachers/dingjian/index.html">J. Ding</a> and <a href="https://zhangsong-li.github.io">Z. Li</a>. <br>
-  <a href="https://arxiv.org/abs/2503.06464">arXiv</a>. 
- </li><br>
-  
-  <li> 
-  Finding a dense submatrix of a random matrix. Sharp bounds for online algorithms.<br>
-  with <a href="https://shankarbhamidi.web.unc.edu">S. Bhamidi</a> and <a href="https://web.mit.edu/gamarnik/www/home.html">D. Gamarnik</a>.<br>
-  <i>Electronic Communications in Probability</i>. <br>
-  <a href="https://arxiv.org/abs/2507.19259">arXiv</a>, <a href="https://projecteuclid.org/journals/electronic-communications-in-probability/volume-31/issue-none/Finding-a-dense-submatrix-of-a-random-matrix-Sharp-bounds/10.1214/26-ECP759.full">journal</a>.
-  </li><br>
-  
- <li> 
- Detection and reconstruction of a random hypergraph from noisy graph projection. <br>
- with <a href="https://zhangsong-li.github.io">Z. Li</a> and <a href="https://stat.uchicago.edu/people/profile/qiheng-xu/">Q. Xu</a>. <br>
-  <i> ISIT 2026 </i>. <br>
-  <a href="https://arxiv.org/abs/2506.17527">arXiv</a>, <a href="https://ieeexplore.ieee.org/document/11653948">conference</a>.
- </li><br>
- 
- <li> 
-  Asymptotic diameter of preferential attachment model.<br>
-  with <a href="https://hangdu2000.github.io/MyHomePage/">H. Du</a>, <a href="https://zhangsong-li.github.io">Z. Li</a> and <a href="https://sites.google.com/view/haodongzhu">H. Zhu</a>.<br>
-  <i>Electronic Communications in Probability</i>. <br>
-  <a href="https://arxiv.org/abs/2504.21741">arXiv</a>, <a href="https://projecteuclid.org/journals/electronic-communications-in-probability/volume-31/issue-none/Asymptotic-diameter-of-preferential-attachment-model/10.1214/26-ECP763.full">journal</a>.
- </li><br>
+    /* Talks */
+    .talk { padding: 13px 0; }
+    .talk-title { font: 16.5px/1.6 var(--serif); text-wrap: pretty; }
+    .talk-venue { margin-top: 2px; font: 12.5px/1.7 var(--sans); color: var(--muted); }
 
- <li> Detecting correlation efficiently in very supercritical stochastic block models: breaking the Otter's threshold barrier.<br>
-  with G. Chen, <a href="https://www.math.pku.edu.cn/teachers/dingjian/index.html">J. Ding</a> and <a href="https://zhangsong-li.github.io">Z. Li</a>.<br>
-  <i>SODA 2026</i>.<br>
- <a href="https://epubs.siam.org/doi/10.1137/1.9781611978971.101">conference</a>, <a href="https://zhangsong-li.github.io/CDGL_SBM_Matching.pdf">full version</a>.
- </li><br>
-   
- <li> 
-  A proof of the changepoint detection threshold conjecture in preferential attachment models.<br>
-  with <a href="https://hangdu2000.github.io/MyHomePage/">H. Du</a> and <a href="https://people.duke.edu/~jx77/">J. Xu</a>.<br> 
-   <i>COLT 2025</i>.<br>
-  Best Poster Award at <i>The 2026 Joint Workshop of RMTA & SNAB.</i> <br>
-  Journal version to appear at <i>Annals of Applied Probability</i>. <br>
-  <a href="https://arxiv.org/abs/2502.00514">arXiv</a>, <a href="https://player.vimeo.com/video/1078141111">video by Jiaming Xu</a>, <a href="https://proceedings.mlr.press/v291/du25a.html">conference</a>, <a href="https://shuyanggong.github.io/Poster_RMTA_SNAB.pdf">poster</a>.
-  </li><br>
-  
- <li> A computational transition for detecting correlated stochastic block models by low-degree polynomials.<br>
-  with G. Chen, <a href="https://www.math.pku.edu.cn/teachers/dingjian/index.html">J. Ding</a> and <a href="https://zhangsong-li.github.io">Z. Li</a>.<br>
-   <i>Annals of Statistics</i>.<br>
-   <a href="https://arxiv.org/abs/2409.00966">arXiv</a>, <a href="https://projecteuclid.org/journals/annals-of-statistics/volume-54/issue-1/A-computational-transition-for-detecting-correlated-stochastic-block-models-by/10.1214/25-AOS2565.short">journal</a>.
-  </li><br>
-  
- <li> The Umeyama algorithm for matching correlated Gaussian geometric models in the low-dimensional regime.<br>
-  with <a href="https://zhangsong-li.github.io">Z. Li</a>.<br> 
-  <a href="https://arxiv.org/abs/2402.15095">arXiv</a>. 
-</li><br>
- 
- <li> The algorithmic phase transition of random graph alignment problem.<br>
-  with <a href="https://hangdu2000.github.io/MyHomePage/">H. Du</a> and R. Huang. <br>
-  <i>Probability Theory and Related Fields</i>. <br> 
-  <a href="https://arxiv.org/abs/2307.06590">arXiv</a>, <a href="https://link.springer.com/article/10.1007/s00440-025-01370-z">journal</a>.
- </li><br>
-  
- <li> A polynomial-time approximation scheme for the maximal overlap of two independent Erdős–Rényi graphs.<br>
- with <a href="https://www.math.pku.edu.cn/teachers/dingjian/index.html">J. Ding</a> and <a href="https://hangdu2000.github.io/MyHomePage/">H. Du</a>.<br>
-  <i>Random Structures and Algorithms</i>.<br>
-<a href="https://arxiv.org/abs/2210.07823">arXiv</a>, <a href="https://onlinelibrary.wiley.com/doi/10.1002/rsa.21212">journal</a>.
- </li><br>
- </ul>
+    /* Teaching */
+    .course { padding: 9px 0; }
+    .course-name { font: 16.5px/1.6 var(--serif); }
+    .course-name a:not(.extra) { color: var(--ink); text-decoration-color: var(--muted); text-decoration-thickness: 1px; }
+    .course-name a:not(.extra):hover { color: var(--accent); text-decoration-color: currentColor; }
+    .course-name .extra { margin-left: 10px; font: 11.5px/1.7 var(--sans); }
 
- <!--
-Coauthors: <a href="https://shankarbhamidi.web.unc.edu">Shankar Bhamidi</a>, Guanyi Chen, <a href="https://www.math.pku.edu.cn/teachers/dingjian/index.html">Jian Ding</a>, <a href="https://hangdu2000.github.io/MyHomePage/">Hang Du</a>, <a href="https://web.mit.edu/gamarnik/www/home.html">David Gamarnik</a>, <a href="https://www.bricehuang.com/index.html">Brice Huang</a>, <a href="https://donghuang-stat.github.io">Dong Huang</a>, Rundong Huang, <a href="https://fifalsp.github.io">Shuangping Li</a>, <a href="https://zhangsong-li.github.io">Zhangsong Li</a>, <a href="https://msellke.com">Mark Sellke</a>, <a href="https://people.duke.edu/~jx77/">Jiaming Xu</a>,
-  <a href="https://stat.uchicago.edu/people/profile/qiheng-xu/">Qiheng Xu</a>, <a href="https://sites.google.com/view/haodongzhu">Haodong Zhu</a>.
--->
-  
-  <!--
-  <hr><h3> Experience </h3>
-  
-  <ul>
+    /* Positions & education */
+    .edu { padding: 16px 0; }
+    .edu-title { font: 19px/1.5 var(--serif); }
+    .edu-place { margin-top: 2px; font: 14px/1.8 var(--sans); color: var(--muted); }
+    .edu-detail { margin-top: 2px; font: 13px/1.75 var(--sans); color: var(--muted); }
 
-  </li><li> Program Associate, Simons Laufer Mathematical Sciences institute (MSRI), January 2025 - February 2025.<br><br>
- 
- </li><li> Visiting PhD student, The Fuqua School of Business, Duke University, September 2024 - Janurary 2025.<br><br>
-  
- </li><li> Visiting PhD student, Department of Statistics and Data Science, Yale University, November 2024.<br><br>
-  
- </li><li> The 2024 CRM-PIMS summer school, July 2024.<br><br>
- 
- </ul>
+    /* ---------- Footer ---------- */
+    .site-footer { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 12px 24px; padding: 22px 0 32px; border-top: 1px solid var(--line); font: 11.5px/1.75 var(--sans); color: var(--muted); }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 20px; }
 
- -->
-  
- <h3>Talks </h3>
+    /* ---------- Responsive ---------- */
+    @media (max-width: 850px) {
+      :root { --meta: 96px; --gap: 22px; }
+      .shell { width: calc(100% - 56px); }
+      .hero { grid-template-columns: minmax(0, 1fr) 180px; gap: 36px; }
+      .portrait { width: 180px; }
+      .zh-name { flex-basis: 100%; margin-top: 8px; font-size: 23px; }
+    }
+    @media (max-width: 600px) {
+      .shell { width: calc(100% - 40px); }
+      .site-header { flex-wrap: wrap; gap: 6px 12px; padding: 12px 0 0; }
+      .theme { order: -1; width: 100%; justify-content: flex-end; margin-bottom: 0; }
+      .site-nav { gap: 4px; font-size: 12px; }
+      .site-nav a { padding: 6px 9px 5px; }
+      .theme-picker { font-size: 11px; }
+      .hero { grid-template-columns: minmax(0, 1fr); gap: 30px; padding: 32px 0; }
+      .hero h1 { font-size: 42px; column-gap: 12px; }
+      .zh-name { flex-basis: auto; margin-top: 0; font-size: 22px; }
+      .bio { font-size: 15.5px; }
+      .portrait { width: 190px; padding-top: 0; }
+      .page-intro { padding: 32px 0 28px; }
+      .page-intro h1 { font-size: 40px; }
+      .tags { gap: 8px; }
+      .section { padding: 26px 0 28px; }
+      .section-heading h2, .status-heading h2 { font-size: 25px; }
+      .year-group { padding: 24px 0 18px; }
+      .year-group h2 { font-size: 24px; }
+      .row { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+      .side { padding-top: 0; }
+      .paper .side { display: flex; flex-wrap: wrap; gap: 0 10px; }
+      .paper h3 { font-size: 19px; }
+      .talk { padding: 12px 0; }
+      .course { padding: 10px 0; }
+    }
+    @media (max-width: 360px) {
+      .shell { width: calc(100% - 32px); }
+      .site-nav { gap: 3px; font-size: 11px; }
+      .site-nav a { padding: 6px 7px 5px; }
+      .hero h1 { font-size: 38px; }
+      .zh-name { font-size: 20px; }
+    }
+    @media (pointer: coarse) {
+      .site-nav a { min-height: 38px; display: inline-flex; align-items: center; }
+      .hero-links a, .paper-links a, .section-link, .footer-links a { min-height: 44px; display: inline-flex; align-items: center; }
+      .theme-picker { min-height: 44px; }
+      .tag { padding-top: 9px; padding-bottom: 9px; }
+      .hero-links, .paper-links { row-gap: 0; }
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme='light']) .portrait-frame img { filter: brightness(.92); }
+    }
+    :root[data-theme='dark'] .portrait-frame img { filter: brightness(.92); }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .js .view:not([hidden]) { animation: none; }
+    }
+    @media print {
+      :root, :root[data-theme] { --paper: #fff; --ink: #111; --muted: #444; --accent: #111; --line: #ccc; color-scheme: light; }
+      body { font-size: 11pt; }
+      .shell { width: 100%; }
+      .site-header, .skip-link, .footer-links, .tags { display: none; }
+      .paper, .talk, .course, .edu { break-inside: avoid; }
+      h2 { break-after: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="shell" id="top">
+    <header class="site-header">
+      <!-- Tabs: each one shows one view below (Home / Research / Talks / Teaching). -->
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="#home" data-nav="home" aria-current="page">Home</a>
+        <a href="#research" data-nav="research">Research</a>
+        <a href="#talks" data-nav="talks">Talks</a>
+        <a href="#teaching" data-nav="teaching">Teaching</a>
+        <a href="https://shuyanggong.github.io/CV_Shuyang_Gong.pdf">CV ↗</a>
+      </nav>
+      <span class="theme">
+        <select class="theme-picker" data-theme-picker aria-label="Color theme">
+          <option value="system">System</option>
+          <option value="light">Light</option>
+          <option value="dark">Dark</option>
+        </select>
+      </span>
+    </header>
 
- <ul>
- </li><li>Stable algorithms cannot reliably find isolated perceptron solutions. (July 3, 2026, Probability and Stochastic Analysis seminar, Chinese Academy of Sciences), Beijing, China. <br><br>
-  
- </li><li>Stable algorithms cannot reliably find isolated perceptron solutions. (May 15, 2026, Shanghai Center for Mathematical Sciences, Fudan University), Shanghai, China. <br><br>
-  
-  </li><li>Phase transitions in statistical models: several examples. (October 9, 2025, Shandong University), Jinan, China. <br><br>
-  
-  </li><li>A proof of the changepoint detection threshold conjecture in preferential attachment models. (July 3, 2025, COLT), Lyon, France.  <br><br>
-  
-  </li><li>A proof of the changepoint detection threshold conjecture in preferential attachment models. (June 3, 2025, An International Conference on Applied Probability), Beijing, China. <br><br>
-   
-  </li><li>Asymptotic diameter of preferential attachment model. (joint with Zhangsong Li, May 29, 2025, YMSC probability seminar, Tsinghua University), Beijing, China. <br><br>
+    <main id="main">
 
-  </li><li>Combinatorial Statistics: recent progress on random graph alignment and changepoint detection. (March 26, 2025, Shandong University), Jinan, China. <br><br>
+      <!-- ================================================================
+           HOME
+           "Selected research" is filled automatically with the papers marked
+           data-selected in the Research list. Nothing to edit here for it.
+           ================================================================ -->
+      <div class="view" id="home" data-view="home" data-title="Shuyang Gong · 巩舒阳">
+        <section class="hero" aria-labelledby="name">
+          <div>
+            <p class="eyebrow">Probability Theory</p>
+            <h1 id="name">Shuyang Gong <span class="zh-name" lang="zh-CN">巩舒阳</span></h1>
+            <p class="role">FDS Postdoctoral Fellow · Yale University</p>
+            <div class="bio">
+              <p>Hello! Welcome to my homepage!</p>
+              <p>I am an FDS postdoctoral fellow at the <a href="https://fds.yale.edu">Institute for Foundations of Data Science, Yale University</a>, hosted by Prof. <a href="http://cs-www.cs.yale.edu/homes/spielman/">Daniel A. Spielman</a>. Previously, I obtained my Ph.D. degree in probability and mathematical statistics at the <a href="https://math.pku.edu.cn">School of Mathematical Sciences, Peking University</a>, where I was advised by Prof. <a href="https://math.pku.edu.cn/teachers/dayue/indexE.htm">Dayue Chen</a> and Prof. <a href="https://math.pku.edu.cn/teachers/dingjian/index.html">Jian Ding</a>. I obtained my B.S. degree in statistics from the Department of Mathematics, Shandong University.</p>
+              <p>My research interest is probability theory. My <a href="https://en.wikipedia.org/wiki/Erdős_number">Erdős Number</a> is 3.</p>
+            </div>
+            <div class="hero-links">
+              <a href="https://scholar.google.com/citations?user=eVymvlkAAAAJ&amp;hl=zh-CN">Google Scholar ↗</a>
+              <a href="https://orcid.org/0009-0007-2975-4614">ORCID ↗</a>
+              <a href="https://www.linkedin.com/in/shuyang-gong-13b904199/">LinkedIn ↗</a>
+              <span><a href="https://shuyanggong.github.io/CV_Shuyang_Gong.pdf">CV ↗</a> <span class="muted">(last updated May 2026)</span></span>
+            </div>
+            <p class="contact"><span class="label">Email</span><span class="nowrap">firstname dot lastname at yale dot edu</span> <span aria-hidden="true">·</span> <span class="nowrap">gongsyprob at gmail dot com</span></p>
+          </div>
+          <figure class="portrait">
+            <div class="portrait-frame">
+              <img src="https://shuyanggong.github.io/shuyang.jpg" width="1598" height="1279" alt="Shuyang Gong standing in a field of reeds, with mountains in the distance" fetchpriority="high">
+            </div>
+            <figcaption>SHUYANG GONG / <span lang="zh-CN">巩舒阳</span></figcaption>
+          </figure>
+        </section>
 
-  </li><li>Matching Wishart matrices via Umeyama algorithm. (Sept.9 2024, Peking University), Beijing, China. <br><br>
+        <section class="section js-only" aria-labelledby="selected-title">
+          <div class="section-heading">
+            <h2 id="selected-title">Selected research</h2>
+            <a class="section-link" href="#research">All research →</a>
+          </div>
+          <ul class="paper-list" role="list" data-fill="selected"></ul>
+        </section>
 
-  </li><li>Optimizing the overlap of two independent Erdös-Rényi graphs. (Jan.15 2024, probability seminar, Sichuan University), Chengdu, China. <br><br>
+        <section class="section" id="education" aria-labelledby="education-title">
+          <div class="section-heading"><h2 id="education-title">Positions &amp; education</h2></div>
+          <div>
+            <div class="edu row">
+              <div class="side">2026 – present</div>
+              <div>
+                <h3 class="edu-title">FDS Postdoctoral Fellow</h3>
+                <p class="edu-place">Yale University</p>
+                <p class="edu-detail">Institute for Foundations of Data Science · Host: Prof. <a href="http://cs-www.cs.yale.edu/homes/spielman/">Daniel A. Spielman</a></p>
+                <p class="edu-detail">Department of Statistics and Data Science, Yale University</p>
+              </div>
+            </div>
+            <div class="edu row">
+              <div class="side">2021 – 2026</div>
+              <div>
+                <h3 class="edu-title">Ph.D. in Probability and Mathematical Statistics</h3>
+                <p class="edu-place">Peking University</p>
+                <p class="edu-detail">School of Mathematical Sciences · Advisors: Prof. <a href="https://math.pku.edu.cn/teachers/dayue/indexE.htm">Dayue Chen</a> and Prof. <a href="https://math.pku.edu.cn/teachers/dingjian/index.html">Jian Ding</a></p>
+              </div>
+            </div>
+            <div class="edu row">
+              <div class="side">2017 – 2021</div>
+              <div>
+                <h3 class="edu-title">B.S. in Statistics</h3>
+                <p class="edu-place">Shandong University</p>
+                <p class="edu-detail">Department of Mathematics</p>
+              </div>
+            </div>
+          </div>
+        </section>
 
-  </li><li>Algorithms and phase transitions in random graph alignment problem. (Sept.11 2023, Peking University), Beijing, China. <br><br>
+      </div>
 
-  </li><li>On cluster expansion and its applications into Ising model--spontaneous magnetization and exponential decay of truncated two-point function in sufficiently Low temperature regime. (Apr. 22, 2023, Peking University), Beijing, China. <br><br>
+      <!-- ================================================================
+           RESEARCH
+           To add a paper: copy one <li class="paper row"> ... </li> block into
+           Preprints or Publications and edit it. Add data-selected to the <li>
+           to also show it under "Selected research" on Home.
+           Left column: first line = venue (class "venue preprint" for preprints),
+           second line = year / status. Counts on the tags update automatically.
+           ================================================================ -->
+      <div class="view" id="research" data-view="research" data-title="Research — Shuyang Gong">
+        <header class="page-intro">
+          <p class="eyebrow">Shuyang Gong · Research</p>
+          <h1>Research</h1>
+          <p>My research interest is probability theory.</p>
+          <nav class="tags" aria-label="Research sections" data-counts>
+            <a class="tag" href="#preprints">Preprints</a>
+            <a class="tag" href="#publications">Publications</a>
+            <a class="tag ext" href="https://scholar.google.com/citations?user=eVymvlkAAAAJ&amp;hl=zh-CN">Google Scholar ↗</a>
+          </nav>
+        </header>
 
-  </li><li>A polynomial-time approximation scheme for the maximal overlap of two independent Erdös-Rényi graphs. (Zhongtai Securities Institute for Financial Studies, Shandong University. Nov. 7th, 2022), online. <br><br>
- 
-  </li><li>An introduction to first-passage percolation. (Zhongtai Securities Institute for Financial Studies, Shandong University. October, 2020), Jinan, China <br><br> 
- </ul>
+        <section class="section" id="preprints" aria-labelledby="preprints-title">
+          <div class="status-heading"><h2 id="preprints-title">Preprints</h2><span class="count"></span></div>
+          <ul class="paper-list" role="list">
+            <li class="paper row">
+              <div class="side"><span class="venue preprint">Preprint</span><span>2026</span></div>
+              <div>
+                <h3><a href="https://arxiv.org/abs/2607.22324">The conclave process</a></h3>
+                <p class="authors">with <a href="https://www.wisdom.weizmann.ac.il/~itai">I. Benjamini</a>, <a href="https://weizmann.elsevierpure.com/en/persons/zhenhao-cai/">Z. Cai</a>, G. Chen and <a href="https://zhangsong-li.github.io">Z. Li</a></p>
+                <p class="paper-links"><a href="https://arxiv.org/abs/2607.22324">arXiv ↗</a></p>
+              </div>
+            </li>
 
-  
-  <h3>Teaching </h3>
-   
-   <ul>
-  
-   <a href="http://faculty.bicmr.pku.edu.cn/~wyang/calculus/index.html">Calculus C</a>(Fall 2021), Stochastic Processes(Spring and Fall 2022), Measure Theory(Spring 2023), Advanced Probability Theory(Fall 2023), <a href="https://mesikepp.github.io/Teaching/S24/index.html">Stochastic Processes and Statistical Physics</a>(Spring 2024),
-    Calculus(B)(Spring 2025), <a href="https://shuyanggong.github.io/notes_first_half.pdf"> notes </a>
-   </ul>
-  
- 
-   
+            <li class="paper row">
+              <div class="side"><span class="venue preprint">Preprint</span><span>2026</span></div>
+              <div>
+                <h3><a href="https://arxiv.org/abs/2602.08173">Fundamental limits of community detection in contextual multi-layer stochastic block models</a></h3>
+                <p class="authors">with <a href="https://donghuang-stat.github.io">D. Huang</a> and <a href="https://zhangsong-li.github.io">Z. Li</a></p>
+                <p class="paper-links"><a href="https://arxiv.org/abs/2602.08173">arXiv ↗</a></p>
+              </div>
+            </li>
+
+            <li class="paper row">
+              <div class="side"><span class="venue preprint">Preprint</span><span>2025</span></div>
+              <div>
+                <h3><a href="https://arxiv.org/abs/2503.06464">Detecting correlation efficiently in stochastic block models: breaking Otter’s threshold in the entire supercritical regime</a></h3>
+                <p class="authors">with G. Chen, <a href="https://www.math.pku.edu.cn/teachers/dingjian/index.html">J. Ding</a> and <a href="https://zhangsong-li.github.io">Z. Li</a></p>
+                <p class="paper-links"><a href="https://arxiv.org/abs/2503.06464">arXiv ↗</a></p>
+              </div>
+            </li>
+
+            <li class="paper row">
+              <div class="side"><span class="venue preprint">Preprint</span><span>2024</span></div>
+              <div>
+                <h3><a href="https://arxiv.org/abs/2402.15095">The Umeyama algorithm for matching correlated Gaussian geometric models in the low-dimensional regime</a></h3>
+                <p class="authors">with <a href="https://zhangsong-li.github.io">Z. Li</a></p>
+                <p class="paper-links"><a href="https://arxiv.org/abs/2402.15095">arXiv ↗</a></p>
+              </div>
+            </li>
+          </ul>
+        </section>
+
+        <section class="section" id="publications" aria-labelledby="publications-title">
+          <div class="status-heading"><h2 id="publications-title">Publications</h2><span class="count"></span></div>
+          <ul class="paper-list" role="list">
+            <li class="paper row" data-selected>
+              <div class="side"><span class="venue">FOCS 2026</span><span>to appear</span></div>
+              <div>
+                <h3><a href="https://arxiv.org/abs/2604.00328">Stable algorithms cannot reliably find isolated perceptron solutions</a></h3>
+                <p class="authors">with <a href="https://www.bricehuang.com/index.html">B. Huang</a>, <a href="https://fifalsp.github.io">S. Li</a> and <a href="https://msellke.com">M. Sellke</a></p>
+                <p class="paper-note">Conference version to appear at <i>FOCS 2026</i></p>
+                <p class="paper-links"><a href="https://arxiv.org/abs/2604.00328">arXiv ↗</a></p>
+              </div>
+            </li>
+
+            <li class="paper row">
+              <div class="side"><span class="venue">ECP 2026</span></div>
+              <div>
+                <h3><a href="https://arxiv.org/abs/2507.19259">Finding a dense submatrix of a random matrix. Sharp bounds for online algorithms</a></h3>
+                <p class="authors">with <a href="https://shankarbhamidi.web.unc.edu">S. Bhamidi</a> and <a href="https://web.mit.edu/gamarnik/www/home.html">D. Gamarnik</a></p>
+                <p class="paper-note"><i>Electronic Communications in Probability</i></p>
+                <p class="paper-links"><a href="https://arxiv.org/abs/2507.19259">arXiv ↗</a><a href="https://projecteuclid.org/journals/electronic-communications-in-probability/volume-31/issue-none/Finding-a-dense-submatrix-of-a-random-matrix-Sharp-bounds/10.1214/26-ECP759.full">Journal ↗</a></p>
+              </div>
+            </li>
+
+            <li class="paper row">
+              <div class="side"><span class="venue">ISIT 2026</span></div>
+              <div>
+                <h3><a href="https://arxiv.org/abs/2506.17527">Detection and reconstruction of a random hypergraph from noisy graph projection</a></h3>
+                <p class="authors">with <a href="https://zhangsong-li.github.io">Z. Li</a> and <a href="https://stat.uchicago.edu/people/profile/qiheng-xu/">Q. Xu</a></p>
+                <p class="paper-note"><i>IEEE International Symposium on Information Theory (ISIT 2026)</i></p>
+                <p class="paper-links"><a href="https://arxiv.org/abs/2506.17527">arXiv ↗</a><a href="https://ieeexplore.ieee.org/document/11653948">Conference ↗</a></p>
+              </div>
+            </li>
+
+            <li class="paper row">
+              <div class="side"><span class="venue">ECP 2026</span></div>
+              <div>
+                <h3><a href="https://arxiv.org/abs/2504.21741">Asymptotic diameter of preferential attachment model</a></h3>
+                <p class="authors">with <a href="https://hangdu2000.github.io/MyHomePage/">H. Du</a>, <a href="https://zhangsong-li.github.io">Z. Li</a> and <a href="https://sites.google.com/view/haodongzhu">H. Zhu</a></p>
+                <p class="paper-note"><i>Electronic Communications in Probability</i></p>
+                <p class="paper-links"><a href="https://arxiv.org/abs/2504.21741">arXiv ↗</a><a href="https://projecteuclid.org/journals/electronic-communications-in-probability/volume-31/issue-none/Asymptotic-diameter-of-preferential-attachment-model/10.1214/26-ECP763.full">Journal ↗</a></p>
+              </div>
+            </li>
+
+            <li class="paper row">
+              <div class="side"><span class="venue">SODA 2026</span></div>
+              <div>
+                <h3><a href="https://epubs.siam.org/doi/10.1137/1.9781611978971.101">Detecting correlation efficiently in very supercritical stochastic block models: breaking the Otter’s threshold barrier</a></h3>
+                <p class="authors">with G. Chen, <a href="https://www.math.pku.edu.cn/teachers/dingjian/index.html">J. Ding</a> and <a href="https://zhangsong-li.github.io">Z. Li</a></p>
+                <p class="paper-note"><i>ACM-SIAM Symposium on Discrete Algorithms (SODA 2026)</i></p>
+                <p class="paper-links"><a href="https://epubs.siam.org/doi/10.1137/1.9781611978971.101">Conference ↗</a><a href="https://zhangsong-li.github.io/CDGL_SBM_Matching.pdf">Full version ↗</a></p>
+              </div>
+            </li>
+
+            <li class="paper row" data-selected>
+              <div class="side"><span class="venue">COLT 2025</span><span>AAP, to appear</span></div>
+              <div>
+                <h3><a href="https://arxiv.org/abs/2502.00514">A proof of the changepoint detection threshold conjecture in preferential attachment models</a></h3>
+                <p class="authors">with <a href="https://hangdu2000.github.io/MyHomePage/">H. Du</a> and <a href="https://people.duke.edu/~jx77/">J. Xu</a></p>
+                <p class="paper-note"><i>Conference on Learning Theory (COLT 2025)</i>. Journal version to appear at <i>Annals of Applied Probability</i></p>
+                <p class="award">Best Poster Award at the 2026 Joint Workshop of RMTA &amp; SNAB</p>
+                <p class="paper-links"><a href="https://arxiv.org/abs/2502.00514">arXiv ↗</a><a href="https://proceedings.mlr.press/v291/du25a.html">Conference ↗</a><a href="https://player.vimeo.com/video/1078141111">Video by Jiaming Xu ↗</a><a href="https://shuyanggong.github.io/Poster_RMTA_SNAB.pdf">Poster ↗</a></p>
+              </div>
+            </li>
+
+            <li class="paper row" data-selected>
+              <div class="side"><span class="venue">AoS 2026</span></div>
+              <div>
+                <h3><a href="https://arxiv.org/abs/2409.00966">A computational transition for detecting correlated stochastic block models by low-degree polynomials</a></h3>
+                <p class="authors">with G. Chen, <a href="https://www.math.pku.edu.cn/teachers/dingjian/index.html">J. Ding</a> and <a href="https://zhangsong-li.github.io">Z. Li</a></p>
+                <p class="paper-note"><i>Annals of Statistics</i></p>
+                <p class="paper-links"><a href="https://arxiv.org/abs/2409.00966">arXiv ↗</a><a href="https://projecteuclid.org/journals/annals-of-statistics/volume-54/issue-1/A-computational-transition-for-detecting-correlated-stochastic-block-models-by/10.1214/25-AOS2565.short">Journal ↗</a></p>
+              </div>
+            </li>
+
+            <li class="paper row" data-selected>
+              <div class="side"><span class="venue">PTRF 2025</span></div>
+              <div>
+                <h3><a href="https://arxiv.org/abs/2307.06590">The algorithmic phase transition of random graph alignment problem</a></h3>
+                <p class="authors">with <a href="https://hangdu2000.github.io/MyHomePage/">H. Du</a> and R. Huang</p>
+                <p class="paper-note"><i>Probability Theory and Related Fields</i></p>
+                <p class="paper-links"><a href="https://arxiv.org/abs/2307.06590">arXiv ↗</a><a href="https://link.springer.com/article/10.1007/s00440-025-01370-z">Journal ↗</a></p>
+              </div>
+            </li>
+
+            <li class="paper row">
+              <div class="side"><span class="venue">RSA 2024</span></div>
+              <div>
+                <h3><a href="https://arxiv.org/abs/2210.07823">A polynomial-time approximation scheme for the maximal overlap of two independent Erdős–Rényi graphs</a></h3>
+                <p class="authors">with <a href="https://www.math.pku.edu.cn/teachers/dingjian/index.html">J. Ding</a> and <a href="https://hangdu2000.github.io/MyHomePage/">H. Du</a></p>
+                <p class="paper-note"><i>Random Structures and Algorithms</i></p>
+                <p class="paper-links"><a href="https://arxiv.org/abs/2210.07823">arXiv ↗</a><a href="https://onlinelibrary.wiley.com/doi/10.1002/rsa.21212">Journal ↗</a></p>
+              </div>
+            </li>
+          </ul>
+        </section>
+      </div>
+
+      <!-- ================================================================
+           TALKS
+           Newest first. To add a talk, copy one <li class="talk row"> block.
+           For a new year, copy a whole <section class="year-group"> and add
+           a matching year tag in the <nav class="tags"> below.
+           ================================================================ -->
+      <div class="view" id="talks" data-view="talks" data-title="Talks — Shuyang Gong">
+        <header class="page-intro">
+          <p class="eyebrow">Shuyang Gong · Talks</p>
+          <h1>Talks</h1>
+          <nav class="tags" aria-label="Talks by year">
+            <a class="tag" href="#talks-2026">2026</a>
+            <a class="tag" href="#talks-2025">2025</a>
+            <a class="tag" href="#talks-2024">2024</a>
+            <a class="tag" href="#talks-2023">2023</a>
+            <a class="tag" href="#talks-2022">2022</a>
+            <a class="tag" href="#talks-2020">2020</a>
+          </nav>
+        </header>
+
+        <section class="year-group" id="talks-2026" aria-label="Talks in 2026">
+          <h2>2026</h2>
+          <ul role="list">
+            <li class="talk row">
+              <time class="side" datetime="2026-07-03">Jul 3, 2026</time>
+              <div>
+                <p class="talk-title">Stable algorithms cannot reliably find isolated perceptron solutions</p>
+                <p class="talk-venue">Probability and Stochastic Analysis seminar, Chinese Academy of Sciences · Beijing, China</p>
+              </div>
+            </li>
+            <li class="talk row">
+              <time class="side" datetime="2026-05-15">May 15, 2026</time>
+              <div>
+                <p class="talk-title">Stable algorithms cannot reliably find isolated perceptron solutions</p>
+                <p class="talk-venue">Shanghai Center for Mathematical Sciences, Fudan University · Shanghai, China</p>
+              </div>
+            </li>
+          </ul>
+        </section>
+
+        <section class="year-group" id="talks-2025" aria-label="Talks in 2025">
+          <h2>2025</h2>
+          <ul role="list">
+            <li class="talk row">
+              <time class="side" datetime="2025-10-09">Oct 9, 2025</time>
+              <div>
+                <p class="talk-title">Phase transitions in statistical models: several examples</p>
+                <p class="talk-venue">Shandong University · Jinan, China</p>
+              </div>
+            </li>
+            <li class="talk row">
+              <time class="side" datetime="2025-07-03">Jul 3, 2025</time>
+              <div>
+                <p class="talk-title">A proof of the changepoint detection threshold conjecture in preferential attachment models</p>
+                <p class="talk-venue">COLT 2025 · Lyon, France</p>
+              </div>
+            </li>
+            <li class="talk row">
+              <time class="side" datetime="2025-06-03">Jun 3, 2025</time>
+              <div>
+                <p class="talk-title">A proof of the changepoint detection threshold conjecture in preferential attachment models</p>
+                <p class="talk-venue">An International Conference on Applied Probability · Beijing, China</p>
+              </div>
+            </li>
+            <li class="talk row">
+              <time class="side" datetime="2025-05-29">May 29, 2025</time>
+              <div>
+                <p class="talk-title">Asymptotic diameter of preferential attachment model</p>
+                <p class="talk-venue">YMSC probability seminar, Tsinghua University · Beijing, China · joint with Zhangsong Li</p>
+              </div>
+            </li>
+            <li class="talk row">
+              <time class="side" datetime="2025-03-26">Mar 26, 2025</time>
+              <div>
+                <p class="talk-title">Combinatorial Statistics: recent progress on random graph alignment and changepoint detection</p>
+                <p class="talk-venue">Shandong University · Jinan, China</p>
+              </div>
+            </li>
+          </ul>
+        </section>
+
+        <section class="year-group" id="talks-2024" aria-label="Talks in 2024">
+          <h2>2024</h2>
+          <ul role="list">
+            <li class="talk row">
+              <time class="side" datetime="2024-09-09">Sep 9, 2024</time>
+              <div>
+                <p class="talk-title">Matching Wishart matrices via Umeyama algorithm</p>
+                <p class="talk-venue">Peking University · Beijing, China</p>
+              </div>
+            </li>
+            <li class="talk row">
+              <time class="side" datetime="2024-01-15">Jan 15, 2024</time>
+              <div>
+                <p class="talk-title">Optimizing the overlap of two independent Erdős–Rényi graphs</p>
+                <p class="talk-venue">Probability seminar, Sichuan University · Chengdu, China</p>
+              </div>
+            </li>
+          </ul>
+        </section>
+
+        <section class="year-group" id="talks-2023" aria-label="Talks in 2023">
+          <h2>2023</h2>
+          <ul role="list">
+            <li class="talk row">
+              <time class="side" datetime="2023-09-11">Sep 11, 2023</time>
+              <div>
+                <p class="talk-title">Algorithms and phase transitions in random graph alignment problem</p>
+                <p class="talk-venue">Peking University · Beijing, China</p>
+              </div>
+            </li>
+            <li class="talk row">
+              <time class="side" datetime="2023-04-22">Apr 22, 2023</time>
+              <div>
+                <p class="talk-title">On cluster expansion and its applications into Ising model—spontaneous magnetization and exponential decay of truncated two-point function in sufficiently low temperature regime</p>
+                <p class="talk-venue">Peking University · Beijing, China</p>
+              </div>
+            </li>
+          </ul>
+        </section>
+
+        <section class="year-group" id="talks-2022" aria-label="Talks in 2022">
+          <h2>2022</h2>
+          <ul role="list">
+            <li class="talk row">
+              <time class="side" datetime="2022-11-07">Nov 7, 2022</time>
+              <div>
+                <p class="talk-title">A polynomial-time approximation scheme for the maximal overlap of two independent Erdős–Rényi graphs</p>
+                <p class="talk-venue">Zhongtai Securities Institute for Financial Studies, Shandong University · online</p>
+              </div>
+            </li>
+          </ul>
+        </section>
+
+        <section class="year-group" id="talks-2020" aria-label="Talks in 2020">
+          <h2>2020</h2>
+          <ul role="list">
+            <li class="talk row">
+              <time class="side" datetime="2020-10">Oct 2020</time>
+              <div>
+                <p class="talk-title">An introduction to first-passage percolation</p>
+                <p class="talk-venue">Zhongtai Securities Institute for Financial Studies, Shandong University · Jinan, China</p>
+              </div>
+            </li>
+          </ul>
+        </section>
+      </div>
+
+      <!-- ================================================================
+           TEACHING
+           ================================================================ -->
+      <div class="view" id="teaching" data-view="teaching" data-title="Teaching — Shuyang Gong">
+        <header class="page-intro">
+          <p class="eyebrow">Shuyang Gong · Teaching</p>
+          <h1>Teaching</h1>
+        </header>
+        <section class="section" aria-label="Courses">
+          <ul role="list">
+            <li class="course row"><span class="side">Spring 2025</span><p class="course-name">Calculus (B) <a class="extra" href="https://shuyanggong.github.io/notes_first_half.pdf">Notes ↗</a></p></li>
+            <li class="course row"><span class="side">Spring 2024</span><p class="course-name"><a href="https://mesikepp.github.io/Teaching/S24/index.html">Stochastic Processes and Statistical Physics</a></p></li>
+            <li class="course row"><span class="side">Fall 2023</span><p class="course-name">Advanced Probability Theory</p></li>
+            <li class="course row"><span class="side">Spring 2023</span><p class="course-name">Measure Theory</p></li>
+            <li class="course row"><span class="side">Spring &amp; Fall 2022</span><p class="course-name">Stochastic Processes</p></li>
+            <li class="course row"><span class="side">Fall 2021</span><p class="course-name"><a href="http://faculty.bicmr.pku.edu.cn/~wyang/calculus/index.html">Calculus (C)</a></p></li>
+          </ul>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <span>© 2026 Shuyang Gong · <span lang="zh-CN">巩舒阳</span></span>
+      <div class="footer-links">
+        <a href="https://scholar.google.com/citations?user=eVymvlkAAAAJ&amp;hl=zh-CN">Google Scholar ↗</a>
+        <a href="https://orcid.org/0009-0007-2975-4614">ORCID ↗</a>
+        <a href="#top" data-top>Back to top ↑</a>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    (function () {
+      var root = document.documentElement;
+      var toArray = function (list) { return Array.prototype.slice.call(list); };
+
+      /* ---- Theme picker (System / Light / Dark), remembered in this browser ---- */
+      var picker = document.querySelector('[data-theme-picker]');
+      if (picker) {
+        picker.value = root.getAttribute('data-theme') || 'system';
+        picker.addEventListener('change', function () {
+          var v = picker.value;
+          if (v === 'light' || v === 'dark') root.setAttribute('data-theme', v);
+          else root.removeAttribute('data-theme');
+          try {
+            if (v === 'system') localStorage.removeItem('sg-theme');
+            else localStorage.setItem('sg-theme', v);
+          } catch (e) {}
+        });
+      }
+
+      /* ---- Home: copy the selected papers ---- */
+      function fill(name, items) {
+        var list = document.querySelector('[data-fill="' + name + '"]');
+        if (!list) return;
+        if (!items.length) { list.closest('section').hidden = true; return; }
+        items.forEach(function (li) { list.appendChild(li.cloneNode(true)); });
+      }
+      fill('selected', toArray(document.querySelectorAll('#research li.paper[data-selected]')));
+
+      /* ---- Counts next to "Preprints" / "Publications" ---- */
+      toArray(document.querySelectorAll('[data-counts] a[href^="#"]')).forEach(function (a) {
+        var target = document.getElementById(a.getAttribute('href').slice(1));
+        if (!target) return;
+        var n = document.createElement('span');
+        n.className = 'n';
+        n.textContent = target.querySelectorAll('li').length;
+        a.appendChild(document.createTextNode(' '));
+        a.appendChild(n);
+      });
+      toArray(document.querySelectorAll('.status-heading .count')).forEach(function (c) {
+        c.textContent = c.closest('section').querySelectorAll('li').length;
+      });
+
+      /* ---- Open outside links (arXiv, journals, PDFs) in a new tab ---- */
+      toArray(document.querySelectorAll('a[href^="http"]')).forEach(function (a) {
+        a.target = '_blank';
+        a.rel = 'noopener';
+      });
+
+      /* ---- Tabs: Home / Research / Talks / Teaching ---- */
+      var views = toArray(document.querySelectorAll('[data-view]'));
+      var tabs = toArray(document.querySelectorAll('[data-nav]'));
+      var home = views[0];
+      var current = null;
+
+      function jump(y) {                      // scroll without the smooth animation
+        root.style.scrollBehavior = 'auto';
+        window.scrollTo(0, y);
+        root.style.scrollBehavior = '';
+      }
+      function reveal(el) {
+        root.style.scrollBehavior = 'auto';
+        el.scrollIntoView();
+        root.style.scrollBehavior = '';
+      }
+      function viewOf(el) {
+        while (el && el.nodeType === 1) {
+          if (el.hasAttribute('data-view')) return el;
+          el = el.parentNode;
+        }
+        return null;
+      }
+      function show(view) {
+        if (view === current) return false;
+        views.forEach(function (v) { v.hidden = v !== view; });
+        tabs.forEach(function (t) {
+          if (t.getAttribute('data-nav') === view.id) t.setAttribute('aria-current', 'page');
+          else t.removeAttribute('aria-current');
+        });
+        document.title = view.getAttribute('data-title');
+        current = view;
+        return true;
+      }
+      function focusHeading(view) {
+        var h = view.querySelector('h1');
+        if (!h) return;
+        h.setAttribute('tabindex', '-1');
+        try { h.focus({ preventScroll: true }); } catch (e) {}
+      }
+      function targetOfHash() {
+        var id = location.hash.slice(1);
+        try { id = decodeURIComponent(id); } catch (e) {}
+        return id ? document.getElementById(id) : null;
+      }
+      /* Show the view that contains the current #hash (Home if none). */
+      function route(isFirstLoad) {
+        var target = targetOfHash();
+        var view = viewOf(target) || (target ? current : null) || home;
+        var changed = show(view);
+        if (!changed) return;                 // same view: let the browser scroll as usual
+        if (target && target !== view) reveal(target);
+        else if (!isFirstLoad || target) jump(0);
+      }
+
+      document.addEventListener('click', function (e) {
+        if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+        var a = e.target.closest && e.target.closest('a[href^="#"]');
+        if (!a) return;
+        if (a.hasAttribute('data-top')) {     // "Back to top": scroll, keep the current tab
+          e.preventDefault();
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+          return;
+        }
+        var el = document.getElementById(a.getAttribute('href').slice(1));
+        if (!el || !el.hasAttribute('data-view')) return;   // e.g. #publications: normal jump
+        e.preventDefault();
+        var isHome = el === home;
+        var alreadyThere = isHome ? (location.hash === '' || location.hash === '#home') : location.hash === '#' + el.id;
+        if (!alreadyThere) history.pushState(null, '', isHome ? location.pathname + location.search : '#' + el.id);
+        show(el);
+        jump(0);
+        focusHeading(el);
+      });
+      window.addEventListener('popstate', function () { route(false); });
+      window.addEventListener('hashchange', function () { route(false); });
+      route(true);
+    })();
+  </script>
+</body>
+</html>
