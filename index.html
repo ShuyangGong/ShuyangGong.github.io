@@ -162,6 +162,8 @@
     .talk { padding: 13px 0; }
     .talk-title { font: 16.5px/1.6 var(--serif); text-wrap: pretty; }
     .talk-venue { margin-top: 2px; font: 12.5px/1.7 var(--sans); color: var(--muted); }
+    .sqrt { white-space: nowrap; }
+    .sqrt > span { padding: 0 1px; border-top: 1px solid currentColor; }   /* bar over the radicand */
 
     /* Teaching */
     .course { padding: 9px 0; }
@@ -548,6 +550,13 @@
         <section class="year-group" id="talks-2026" aria-label="Talks in 2026">
           <h2>2026</h2>
           <ul role="list">
+            <li class="talk row">
+              <time class="side" datetime="2026-10-08">Oct 8, 2026</time>
+              <div>
+                <p class="talk-title">The <span class="sqrt">√<span>8/9</span></span> algorithmic gap and the branching overlap gap property</p>
+                <p class="talk-venue">Yale Theory Lunch seminar · New Haven, USA</p>
+              </div>
+            </li>
             <li class="talk row">
               <time class="side" datetime="2026-07-03">Jul 3, 2026</time>
               <div>
