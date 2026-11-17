@@ -113,6 +113,9 @@
     .role { font: 13px/1.8 var(--sans); color: var(--muted); margin-bottom: 24px; }
     .bio { max-width: 620px; font-size: 16px; line-height: 1.85; }
     .bio p + p { margin-top: 12px; }
+    .coauthors { max-width: 760px; margin-top: 6px; font: 14px/1.9 var(--sans); color: var(--muted); }
+    .coauthors a { white-space: nowrap; color: var(--ink); text-decoration-color: var(--line); text-underline-offset: 3px; }
+    .coauthors a:hover { color: var(--accent); text-decoration-color: currentColor; }
     .nowrap { white-space: nowrap; }
     .portrait { margin: 0; }
     .portrait-frame { aspect-ratio: 1 / 1; overflow: hidden; border-radius: 6px; background: var(--line); }
@@ -533,6 +536,12 @@
               </div>
             </li>
           </ul>
+        </section>
+
+        <section class="section" id="coauthors" aria-labelledby="coauthors-title">
+          <div class="status-heading"><h2 id="coauthors-title">Coauthors</h2></div>
+          <!-- Alphabetical by last name. Add a name here when you add a paper. -->
+          <p class="coauthors"><a href="https://www.wisdom.weizmann.ac.il/~itai">Itai Benjamini</a>, <a href="https://shankarbhamidi.web.unc.edu">Shankar Bhamidi</a>, <a href="https://weizmann.elsevierpure.com/en/persons/zhenhao-cai/">Zhenhao Cai</a>, Guanyi Chen, <a href="https://www.math.pku.edu.cn/teachers/dingjian/index.html">Jian Ding</a>, <a href="https://hangdu2000.github.io/MyHomePage/">Hang Du</a>, <a href="https://web.mit.edu/gamarnik/www/home.html">David Gamarnik</a>, <a href="https://www.bricehuang.com/index.html">Brice Huang</a>, <a href="https://donghuang-stat.github.io">Dong Huang</a>, Rundong Huang, <a href="https://fifalsp.github.io">Shuangping Li</a>, <a href="https://zhangsong-li.github.io">Zhangsong Li</a>, <a href="https://msellke.com">Mark Sellke</a>, <a href="https://people.duke.edu/~jx77/">Jiaming Xu</a>, <a href="https://stat.uchicago.edu/people/profile/qiheng-xu/">Qiheng Xu</a>, <a href="https://sites.google.com/view/haodongzhu">Haodong Zhu</a>.</p>
         </section>
       </div>
 
