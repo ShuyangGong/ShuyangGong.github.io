@@ -160,6 +160,8 @@
     .award { margin-top: 4px; font: 12.5px/1.7 var(--sans); color: var(--accent); }
     .award::before { content: "\2605"; margin-right: 6px; font-size: 11px; }
     .paper-links { display: flex; flex-wrap: wrap; gap: 6px 18px; margin-top: 8px; font: 11.5px/1.7 var(--sans); }
+    .topic + .topic { margin-top: 18px; }
+    .topic-title { margin-top: 18px; font: 600 12px/1.6 var(--sans); letter-spacing: .1em; text-transform: uppercase; color: var(--accent); }
 
     /* Talks */
     .talk { padding: 13px 0; }
@@ -365,8 +367,10 @@
 
       <!-- ================================================================
            RESEARCH
-           To add a paper: copy one <li class="paper row"> ... </li> block into
-           Preprints or Publications and edit it. Add data-selected to the <li>
+           Papers are grouped by area (Probability / Statistics) and topic.
+           To add a paper: copy one <li class="paper row"> ... </li> block into the
+           right topic list (newest first) and edit it. To add a topic, copy a whole
+           <div class="topic"> ... </div> block. Add data-selected to the <li>
            to also show it under "Selected research" on Home.
            Left column: first line = venue (class "venue preprint" for preprints),
            second line = year / status. Counts on the tags update automatically.
@@ -376,25 +380,18 @@
           <p class="eyebrow">Shuyang Gong · Research</p>
           <h1>Research</h1>
           <p>My research interest is probability theory.</p>
-          <nav class="tags" aria-label="Research sections" data-counts>
-            <a class="tag" href="#preprints">Preprints</a>
-            <a class="tag" href="#publications">Publications</a>
+          <nav class="tags" aria-label="Research areas" data-counts>
+            <a class="tag" href="#probability">Probability Theory</a>
+            <a class="tag" href="#statistics">Statistics Theory</a>
             <a class="tag ext" href="https://scholar.google.com/citations?user=eVymvlkAAAAJ&amp;hl=zh-CN">Google Scholar ↗</a>
           </nav>
         </header>
 
-        <section class="section" id="preprints" aria-labelledby="preprints-title">
-          <div class="status-heading"><h2 id="preprints-title">Preprints</h2><span class="count"></span></div>
-          <ul class="paper-list" role="list">
-            <li class="paper row">
-              <div class="side"><span class="venue preprint">Preprint</span><span>2026</span></div>
-              <div>
-                <h3><a href="https://arxiv.org/abs/2611.29186">The broken-sample problem revisited II: Detecting hidden linear dependencies</a></h3>
-                <p class="authors">with <a href="http://www.stat.yale.edu/~yw562/">Y. Wu</a> and <a href="https://people.duke.edu/~jx77/">J. Xu</a></p>
-                <p class="paper-links"><a href="https://arxiv.org/abs/2611.29186">arXiv ↗</a></p>
-              </div>
-            </li>
-
+        <section class="section" id="probability" aria-labelledby="probability-title">
+          <div class="status-heading"><h2 id="probability-title">Probability Theory</h2><span class="count"></span></div>
+          <div class="topic">
+            <h3 class="topic-title">Perceptron models and random CSPs</h3>
+            <ul class="paper-list" role="list">
             <li class="paper row" data-selected>
               <div class="side"><span class="venue preprint">Preprint</span><span>2026</span></div>
               <div>
@@ -403,7 +400,6 @@
                 <p class="paper-links"><a href="https://arxiv.org/abs/2610.31736">arXiv ↗</a></p>
               </div>
             </li>
-
             <li class="paper row" data-selected>
               <div class="side"><span class="venue preprint">Preprint</span><span>2026</span></div>
               <div>
@@ -412,48 +408,6 @@
                 <p class="paper-links"><a href="https://arxiv.org/abs/2610.06275">arXiv ↗</a><a href="https://shuyanggong.github.io/strong_freezing_talk.pdf">Slides ↗</a></p>
               </div>
             </li>
-
-            <li class="paper row">
-              <div class="side"><span class="venue preprint">Preprint</span><span>2026</span></div>
-              <div>
-                <h3><a href="https://arxiv.org/abs/2607.22324">The conclave process</a></h3>
-                <p class="authors">with <a href="https://www.wisdom.weizmann.ac.il/~itai">I. Benjamini</a>, <a href="https://weizmann.elsevierpure.com/en/persons/zhenhao-cai/">Z. Cai</a>, G. Chen and <a href="https://zhangsong-li.github.io">Z. Li</a></p>
-                <p class="paper-links"><a href="https://arxiv.org/abs/2607.22324">arXiv ↗</a></p>
-              </div>
-            </li>
-
-            <li class="paper row">
-              <div class="side"><span class="venue preprint">Preprint</span><span>2026</span></div>
-              <div>
-                <h3><a href="https://arxiv.org/abs/2602.08173">Fundamental limits of community detection in contextual multi-layer stochastic block models</a></h3>
-                <p class="authors">with <a href="https://donghuang-stat.github.io">D. Huang</a> and <a href="https://zhangsong-li.github.io">Z. Li</a></p>
-                <p class="paper-links"><a href="https://arxiv.org/abs/2602.08173">arXiv ↗</a></p>
-              </div>
-            </li>
-
-            <li class="paper row">
-              <div class="side"><span class="venue preprint">Preprint</span><span>2025</span></div>
-              <div>
-                <h3><a href="https://arxiv.org/abs/2503.06464">Detecting correlation efficiently in stochastic block models: breaking Otter’s threshold in the entire supercritical regime</a></h3>
-                <p class="authors">with G. Chen, <a href="https://www.math.pku.edu.cn/teachers/dingjian/index.html">J. Ding</a> and <a href="https://zhangsong-li.github.io">Z. Li</a></p>
-                <p class="paper-links"><a href="https://arxiv.org/abs/2503.06464">arXiv ↗</a></p>
-              </div>
-            </li>
-
-            <li class="paper row">
-              <div class="side"><span class="venue preprint">Preprint</span><span>2024</span></div>
-              <div>
-                <h3><a href="https://arxiv.org/abs/2402.15095">The Umeyama algorithm for matching correlated Gaussian geometric models in the low-dimensional regime</a></h3>
-                <p class="authors">with <a href="https://zhangsong-li.github.io">Z. Li</a></p>
-                <p class="paper-links"><a href="https://arxiv.org/abs/2402.15095">arXiv ↗</a></p>
-              </div>
-            </li>
-          </ul>
-        </section>
-
-        <section class="section" id="publications" aria-labelledby="publications-title">
-          <div class="status-heading"><h2 id="publications-title">Publications</h2><span class="count"></span></div>
-          <ul class="paper-list" role="list">
             <li class="paper row" data-selected>
               <div class="side"><span class="venue">FOCS 2026</span><span>to appear</span></div>
               <div>
@@ -463,7 +417,11 @@
                 <p class="paper-links"><a href="https://arxiv.org/abs/2604.00328">arXiv ↗</a></p>
               </div>
             </li>
-
+            </ul>
+          </div>
+          <div class="topic">
+            <h3 class="topic-title">Random optimization and algorithmic thresholds</h3>
+            <ul class="paper-list" role="list">
             <li class="paper row">
               <div class="side"><span class="venue">ECP 2026</span></div>
               <div>
@@ -473,58 +431,6 @@
                 <p class="paper-links"><a href="https://arxiv.org/abs/2507.19259">arXiv ↗</a><a href="https://projecteuclid.org/journals/electronic-communications-in-probability/volume-31/issue-none/Finding-a-dense-submatrix-of-a-random-matrix-Sharp-bounds/10.1214/26-ECP759.full">Journal ↗</a></p>
               </div>
             </li>
-
-            <li class="paper row">
-              <div class="side"><span class="venue">ISIT 2026</span></div>
-              <div>
-                <h3><a href="https://arxiv.org/abs/2506.17527">Detection and reconstruction of a random hypergraph from noisy graph projection</a></h3>
-                <p class="authors">with <a href="https://zhangsong-li.github.io">Z. Li</a> and <a href="https://stat.uchicago.edu/people/profile/qiheng-xu/">Q. Xu</a></p>
-                <p class="paper-note"><i>IEEE International Symposium on Information Theory (ISIT 2026)</i></p>
-                <p class="paper-links"><a href="https://arxiv.org/abs/2506.17527">arXiv ↗</a><a href="https://ieeexplore.ieee.org/document/11653948">Conference ↗</a></p>
-              </div>
-            </li>
-
-            <li class="paper row">
-              <div class="side"><span class="venue">ECP 2026</span></div>
-              <div>
-                <h3><a href="https://arxiv.org/abs/2504.21741">Asymptotic diameter of preferential attachment model</a></h3>
-                <p class="authors">with <a href="https://hangdu2000.github.io/MyHomePage/">H. Du</a>, <a href="https://zhangsong-li.github.io">Z. Li</a> and <a href="https://sites.google.com/view/haodongzhu">H. Zhu</a></p>
-                <p class="paper-note"><i>Electronic Communications in Probability</i></p>
-                <p class="paper-links"><a href="https://arxiv.org/abs/2504.21741">arXiv ↗</a><a href="https://projecteuclid.org/journals/electronic-communications-in-probability/volume-31/issue-none/Asymptotic-diameter-of-preferential-attachment-model/10.1214/26-ECP763.full">Journal ↗</a></p>
-              </div>
-            </li>
-
-            <li class="paper row">
-              <div class="side"><span class="venue">SODA 2026</span></div>
-              <div>
-                <h3><a href="https://epubs.siam.org/doi/10.1137/1.9781611978971.101">Detecting correlation efficiently in very supercritical stochastic block models: breaking the Otter’s threshold barrier</a></h3>
-                <p class="authors">with G. Chen, <a href="https://www.math.pku.edu.cn/teachers/dingjian/index.html">J. Ding</a> and <a href="https://zhangsong-li.github.io">Z. Li</a></p>
-                <p class="paper-note"><i>ACM-SIAM Symposium on Discrete Algorithms (SODA 2026)</i></p>
-                <p class="paper-links"><a href="https://epubs.siam.org/doi/10.1137/1.9781611978971.101">Conference ↗</a><a href="https://zhangsong-li.github.io/CDGL_SBM_Matching.pdf">Full version ↗</a></p>
-              </div>
-            </li>
-
-            <li class="paper row" data-selected>
-              <div class="side"><span class="venue">COLT 2025</span><span>AAP, to appear</span></div>
-              <div>
-                <h3><a href="https://arxiv.org/abs/2502.00514">A proof of the changepoint detection threshold conjecture in preferential attachment models</a></h3>
-                <p class="authors">with <a href="https://hangdu2000.github.io/MyHomePage/">H. Du</a> and <a href="https://people.duke.edu/~jx77/">J. Xu</a></p>
-                <p class="paper-note"><i>Conference on Learning Theory (COLT 2025)</i>. Journal version to appear at <i>Annals of Applied Probability</i></p>
-                <p class="award">Best Poster Award at the 2026 Joint Workshop of RMTA &amp; SNAB</p>
-                <p class="paper-links"><a href="https://arxiv.org/abs/2502.00514">arXiv ↗</a><a href="https://proceedings.mlr.press/v291/du25a.html">Conference ↗</a><a href="https://player.vimeo.com/video/1078141111">Video by Jiaming Xu ↗</a><a href="https://shuyanggong.github.io/Poster_RMTA_SNAB.pdf">Poster ↗</a></p>
-              </div>
-            </li>
-
-            <li class="paper row" data-selected>
-              <div class="side"><span class="venue">AoS 2026</span></div>
-              <div>
-                <h3><a href="https://arxiv.org/abs/2409.00966">A computational transition for detecting correlated stochastic block models by low-degree polynomials</a></h3>
-                <p class="authors">with G. Chen, <a href="https://www.math.pku.edu.cn/teachers/dingjian/index.html">J. Ding</a> and <a href="https://zhangsong-li.github.io">Z. Li</a></p>
-                <p class="paper-note"><i>Annals of Statistics</i></p>
-                <p class="paper-links"><a href="https://arxiv.org/abs/2409.00966">arXiv ↗</a><a href="https://projecteuclid.org/journals/annals-of-statistics/volume-54/issue-1/A-computational-transition-for-detecting-correlated-stochastic-block-models-by/10.1214/25-AOS2565.short">Journal ↗</a></p>
-              </div>
-            </li>
-
             <li class="paper row" data-selected>
               <div class="side"><span class="venue">PTRF 2025</span></div>
               <div>
@@ -534,7 +440,6 @@
                 <p class="paper-links"><a href="https://arxiv.org/abs/2307.06590">arXiv ↗</a><a href="https://link.springer.com/article/10.1007/s00440-025-01370-z">Journal ↗</a></p>
               </div>
             </li>
-
             <li class="paper row">
               <div class="side"><span class="venue">RSA 2024</span></div>
               <div>
@@ -544,7 +449,113 @@
                 <p class="paper-links"><a href="https://arxiv.org/abs/2210.07823">arXiv ↗</a><a href="https://onlinelibrary.wiley.com/doi/10.1002/rsa.21212">Journal ↗</a></p>
               </div>
             </li>
-          </ul>
+            </ul>
+          </div>
+          <div class="topic">
+            <h3 class="topic-title">Random graphs and processes</h3>
+            <ul class="paper-list" role="list">
+            <li class="paper row">
+              <div class="side"><span class="venue preprint">Preprint</span><span>2026</span></div>
+              <div>
+                <h3><a href="https://arxiv.org/abs/2607.22324">The conclave process</a></h3>
+                <p class="authors">with <a href="https://www.wisdom.weizmann.ac.il/~itai">I. Benjamini</a>, <a href="https://weizmann.elsevierpure.com/en/persons/zhenhao-cai/">Z. Cai</a>, G. Chen and <a href="https://zhangsong-li.github.io">Z. Li</a></p>
+                <p class="paper-links"><a href="https://arxiv.org/abs/2607.22324">arXiv ↗</a></p>
+              </div>
+            </li>
+            <li class="paper row">
+              <div class="side"><span class="venue">ECP 2026</span></div>
+              <div>
+                <h3><a href="https://arxiv.org/abs/2504.21741">Asymptotic diameter of preferential attachment model</a></h3>
+                <p class="authors">with <a href="https://hangdu2000.github.io/MyHomePage/">H. Du</a>, <a href="https://zhangsong-li.github.io">Z. Li</a> and <a href="https://sites.google.com/view/haodongzhu">H. Zhu</a></p>
+                <p class="paper-note"><i>Electronic Communications in Probability</i></p>
+                <p class="paper-links"><a href="https://arxiv.org/abs/2504.21741">arXiv ↗</a><a href="https://projecteuclid.org/journals/electronic-communications-in-probability/volume-31/issue-none/Asymptotic-diameter-of-preferential-attachment-model/10.1214/26-ECP763.full">Journal ↗</a></p>
+              </div>
+            </li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="section" id="statistics" aria-labelledby="statistics-title">
+          <div class="status-heading"><h2 id="statistics-title">Statistics Theory</h2><span class="count"></span></div>
+          <div class="topic">
+            <h3 class="topic-title">Graph matching</h3>
+            <ul class="paper-list" role="list">
+              <li class="paper row">
+                <div class="side"><span class="venue preprint">Preprint</span><span>2026</span></div>
+                <div>
+                  <h3><a href="https://arxiv.org/abs/2611.29186">The broken-sample problem revisited II: Detecting hidden linear dependencies</a></h3>
+                  <p class="authors">with <a href="http://www.stat.yale.edu/~yw562/">Y. Wu</a> and <a href="https://people.duke.edu/~jx77/">J. Xu</a></p>
+                  <p class="paper-links"><a href="https://arxiv.org/abs/2611.29186">arXiv ↗</a></p>
+                </div>
+              </li>
+              <li class="paper row" data-selected>
+                <div class="side"><span class="venue">AoS 2026</span></div>
+                <div>
+                  <h3><a href="https://arxiv.org/abs/2409.00966">A computational transition for detecting correlated stochastic block models by low-degree polynomials</a></h3>
+                  <p class="authors">with G. Chen, <a href="https://www.math.pku.edu.cn/teachers/dingjian/index.html">J. Ding</a> and <a href="https://zhangsong-li.github.io">Z. Li</a></p>
+                  <p class="paper-note"><i>Annals of Statistics</i></p>
+                  <p class="paper-links"><a href="https://arxiv.org/abs/2409.00966">arXiv ↗</a><a href="https://projecteuclid.org/journals/annals-of-statistics/volume-54/issue-1/A-computational-transition-for-detecting-correlated-stochastic-block-models-by/10.1214/25-AOS2565.short">Journal ↗</a></p>
+                </div>
+              </li>
+              <li class="paper row">
+                <div class="side"><span class="venue">SODA 2026</span></div>
+                <div>
+                  <h3><a href="https://epubs.siam.org/doi/10.1137/1.9781611978971.101">Detecting correlation efficiently in very supercritical stochastic block models: breaking the Otter’s threshold barrier</a></h3>
+                  <p class="authors">with G. Chen, <a href="https://www.math.pku.edu.cn/teachers/dingjian/index.html">J. Ding</a> and <a href="https://zhangsong-li.github.io">Z. Li</a></p>
+                  <p class="paper-note"><i>ACM-SIAM Symposium on Discrete Algorithms (SODA 2026)</i></p>
+                  <p class="paper-links"><a href="https://epubs.siam.org/doi/10.1137/1.9781611978971.101">Conference ↗</a><a href="https://zhangsong-li.github.io/CDGL_SBM_Matching.pdf">Full version ↗</a></p>
+                </div>
+              </li>
+              <li class="paper row">
+                <div class="side"><span class="venue preprint">Preprint</span><span>2025</span></div>
+                <div>
+                  <h3><a href="https://arxiv.org/abs/2503.06464">Detecting correlation efficiently in stochastic block models: breaking Otter’s threshold in the entire supercritical regime</a></h3>
+                  <p class="authors">with G. Chen, <a href="https://www.math.pku.edu.cn/teachers/dingjian/index.html">J. Ding</a> and <a href="https://zhangsong-li.github.io">Z. Li</a></p>
+                  <p class="paper-links"><a href="https://arxiv.org/abs/2503.06464">arXiv ↗</a></p>
+                </div>
+              </li>
+              <li class="paper row">
+                <div class="side"><span class="venue preprint">Preprint</span><span>2024</span></div>
+                <div>
+                  <h3><a href="https://arxiv.org/abs/2402.15095">The Umeyama algorithm for matching correlated Gaussian geometric models in the low-dimensional regime</a></h3>
+                  <p class="authors">with <a href="https://zhangsong-li.github.io">Z. Li</a></p>
+                  <p class="paper-links"><a href="https://arxiv.org/abs/2402.15095">arXiv ↗</a></p>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="topic">
+            <h3 class="topic-title">Other statistics theory</h3>
+            <ul class="paper-list" role="list">
+              <li class="paper row">
+                <div class="side"><span class="venue preprint">Preprint</span><span>2026</span></div>
+                <div>
+                  <h3><a href="https://arxiv.org/abs/2602.08173">Fundamental limits of community detection in contextual multi-layer stochastic block models</a></h3>
+                  <p class="authors">with <a href="https://donghuang-stat.github.io">D. Huang</a> and <a href="https://zhangsong-li.github.io">Z. Li</a></p>
+                  <p class="paper-links"><a href="https://arxiv.org/abs/2602.08173">arXiv ↗</a></p>
+                </div>
+              </li>
+              <li class="paper row">
+                <div class="side"><span class="venue">ISIT 2026</span></div>
+                <div>
+                  <h3><a href="https://arxiv.org/abs/2506.17527">Detection and reconstruction of a random hypergraph from noisy graph projection</a></h3>
+                  <p class="authors">with <a href="https://zhangsong-li.github.io">Z. Li</a> and <a href="https://stat.uchicago.edu/people/profile/qiheng-xu/">Q. Xu</a></p>
+                  <p class="paper-note"><i>IEEE International Symposium on Information Theory (ISIT 2026)</i></p>
+                  <p class="paper-links"><a href="https://arxiv.org/abs/2506.17527">arXiv ↗</a><a href="https://ieeexplore.ieee.org/document/11653948">Conference ↗</a></p>
+                </div>
+              </li>
+              <li class="paper row" data-selected>
+                <div class="side"><span class="venue">COLT 2025</span><span>AAP, to appear</span></div>
+                <div>
+                  <h3><a href="https://arxiv.org/abs/2502.00514">A proof of the changepoint detection threshold conjecture in preferential attachment models</a></h3>
+                  <p class="authors">with <a href="https://hangdu2000.github.io/MyHomePage/">H. Du</a> and <a href="https://people.duke.edu/~jx77/">J. Xu</a></p>
+                  <p class="paper-note"><i>Conference on Learning Theory (COLT 2025)</i>. Journal version to appear at <i>Annals of Applied Probability</i></p>
+                  <p class="award">Best Poster Award at the 2026 Joint Workshop of RMTA &amp; SNAB</p>
+                  <p class="paper-links"><a href="https://arxiv.org/abs/2502.00514">arXiv ↗</a><a href="https://proceedings.mlr.press/v291/du25a.html">Conference ↗</a><a href="https://player.vimeo.com/video/1078141111">Video by Jiaming Xu ↗</a><a href="https://shuyanggong.github.io/Poster_RMTA_SNAB.pdf">Poster ↗</a></p>
+                </div>
+              </li>
+            </ul>
+          </div>
         </section>
 
         <section class="section" id="coauthors" aria-labelledby="coauthors-title">
