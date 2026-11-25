@@ -793,7 +793,14 @@
         if (!items.length) { list.closest('section').hidden = true; return; }
         items.forEach(function (li) { list.appendChild(li.cloneNode(true)); });
       }
-      fill('selected', toArray(document.querySelectorAll('#research li.paper[data-selected]')));
+      /* Selected papers are listed newest first by their arXiv number
+         (the date they first appeared on arXiv), wherever they sit in Research. */
+      function arxivId(li) {
+        var a = li.querySelector('a[href*="arxiv.org/abs/"]');
+        return a ? a.getAttribute('href').split('/abs/')[1] : '';
+      }
+      fill('selected', toArray(document.querySelectorAll('#research li.paper[data-selected]'))
+        .sort(function (x, y) { return arxivId(y).localeCompare(arxivId(x)); }));
 
       /* ---- Counts next to "Preprints" / "Publications" ---- */
       toArray(document.querySelectorAll('[data-counts] a[href^="#"]')).forEach(function (a) {
